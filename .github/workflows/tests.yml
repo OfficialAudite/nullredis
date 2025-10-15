@@ -16,11 +16,7 @@ jobs:
         with:
           php-version: '8.2'
       - name: Install dependencies
-        run: |
-          cd nullredisgit
-          composer install --no-interaction --no-progress
+        run: composer install --no-interaction --no-progress
       - name: Run tests
-        run: |
-          cd nullredisgit
-          composer test
+        run: composer test
 
