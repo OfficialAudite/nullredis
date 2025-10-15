@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2025-10-16
+- security: restrict cache directory permissions to 0770 (base, shards, flushAll recreate)
+- behavior: `ping()` always returns true; `connect()`/`auth()` return true
+- tests: expand coverage for all available commands, including exists/expire, flushAll, zremrangebyscore return count, and sMembers on missing keys
+
 ## [0.1.1] - 2025-10-16
 - docs: add Composer autoload instructions to README
 - ci: fix workflow to run from repo root
