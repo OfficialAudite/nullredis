@@ -64,6 +64,22 @@ composer install
 composer test
 ```
 
+## Roadmap
+- [x] KV basics: `get`, `set`, `setex`, `exists`, `expire`
+- [x] Admin: `flushAll`
+- [x] Sorted sets (MVP): `zadd`, `zcard`, `zremrangebyscore`
+- [x] Sets (MVP): `sAdd`/`sMembers`
+- [ ] KV more: `del`, `mset`, `mget`, `incr`, `decr`, `incrBy`, `decrBy`, `pexpire`, `ttl`, `pttl`, `persist`, `type`, `keys`
+- [ ] Sets more: `sismember`, `srem`, `scard`
+- [ ] Sorted sets more: `zrange`, `zrevrange`, `zrangebyscore`, `zrem`, `zscore`, `zcount`
+- [ ] Lists: `lpush`, `rpush`, `lpop`, `rpop`, `llen`, `lrange`
+- [ ] Hashes: `hset`, `hget`, `hmset`, `hmget`, `hgetall`, `hdel`, `hexists`, `hincrby`
+- [ ] DB/admin: `select` (db directories), `dbsize`, `flushdb`
+- [ ] Docs: compatibility matrix vs phpredis
+- [ ] Optional: PHPCS and coding-style CI
+
+Non-goals (for now): Pub/Sub, Streams, Lua (`eval`), blocking ops (`blpop`, `brpop`), Cluster.
+
 ## Notes
 - Per-key JSON files under `cache/`, sharded by the first 2 chars of SHA1(key)
 - Lazy TTL expiration on read
