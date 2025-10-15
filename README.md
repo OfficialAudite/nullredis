@@ -12,7 +12,7 @@ It’s useful as a drop-in fallback when Redis is unavailable, or as a lightweig
 ## Install
 ### Via Composer (recommended)
 ```bash
-composer require nullredis/nullredis
+composer require officialaudite/nullredis
 ```
 ```php
 require __DIR__ . '/vendor/autoload.php';
