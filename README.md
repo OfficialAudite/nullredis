@@ -10,10 +10,21 @@ NullRedis is a tiny, dependency-free, file-backed shim that mimics a small subse
 It’s useful as a drop-in fallback when Redis is unavailable, or as a lightweight cache/rate-limiter without running a server.
 
 ## Install
+### Via Composer (recommended)
+```bash
+composer require nullredis/nullredis
+```
+```php
+require __DIR__ . '/vendor/autoload.php';
+use NullRedis\NullRedis;
+$cache = new NullRedis(__DIR__.'/cache'); // optional custom cache dir
+```
+
+### Manual (copy file)
 Copy `src/NullRedis.php` into your project and include it.
 ```php
 require_once __DIR__.'/src/NullRedis.php';
-$cache = new \NullRedis\NullRedis(__DIR__.'/cache'); // optional custom cache dir
+$cache = new \NullRedis\NullRedis(__DIR__.'/cache');
 ```
 
 ## Usage
@@ -44,6 +55,13 @@ $cache->zremrangebyscore($key, 0, $now - $window);
 $cache->zadd($key, $now, (string)$now);
 if ($cache->zcard($key) > $max) { http_response_code(429); exit('Too Many Requests'); }
 $cache->expire($key, $window+1);
+```
+
+## Development
+### Run tests
+```bash
+composer install
+composer test
 ```
 
 ## Notes
