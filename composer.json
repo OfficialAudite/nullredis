@@ -1,11 +1,11 @@
 {
-  "name": "nullredis/nullredis",
+  "name": "nullredis",
   "description": "A tiny file-backed Redis-like shim for PHP (KV, sets, sorted sets)",
   "type": "library",
   "license": "MIT",
   "keywords": ["redis", "cache", "rate limit", "file cache", "shim"],
   "authors": [
-    { "name": "NullRedis Contributors" }
+    { "name": "Audite.dev" }
   ],
   "require": {
     "php": ">=8.0"
