@@ -10,14 +10,14 @@ class NullRedis
     {
         $root = $baseDir ?: (__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'cache');
         $this->dir = realpath($root) ?: $root;
-        if (!is_dir($this->dir)) @mkdir($this->dir, 0775, true);
+        if (!is_dir($this->dir)) @mkdir($this->dir, 0770, true);
     }
 
     private function shardDir(string $hash): string
     {
-        $sub = substr($hash, 0, 2);
+        $sub = substr($hash, 0, 4);
         $path = $this->dir . DIRECTORY_SEPARATOR . $sub;
-        if (!is_dir($path)) @mkdir($path, 0775, true);
+        if (!is_dir($path)) @mkdir($path, 0770, true);
         return $path;
     }
 
@@ -52,9 +52,9 @@ class NullRedis
     }
 
     // Redis-like API subset
-    public function connect($host = null, $port = null) { return false; }
-    public function auth($password) { return false; }
-    public function ping() { return false; }
+    public function connect($host = null, $port = null) { return true; }
+    public function auth($password) { return true; }
+    public function ping() { return true; }
 
     public function get($key)
     {
@@ -150,7 +150,7 @@ class NullRedis
         foreach ($it as $file) {
             if ($file->isDir()) @rmdir($file->getRealPath()); else @unlink($file->getRealPath());
         }
-        @mkdir($this->dir, 0775, true);
+        @mkdir($this->dir, 0770, true);
     }
 }
 
