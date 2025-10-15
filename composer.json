@@ -1,5 +1,5 @@
 {
-  "name": "nullredis",
+  "name": "officialaudite/nullredis",
   "description": "A tiny file-backed Redis-like shim for PHP (KV, sets, sorted sets)",
   "type": "library",
   "license": "MIT",
