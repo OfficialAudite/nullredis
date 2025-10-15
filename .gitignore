@@ -1,0 +1,14 @@
+# Dependencies
+/vendor/
+/composer.lock
+
+# Cache/runtime
+/cache/
+
+# IDE/editor
+/.idea/
+/.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
